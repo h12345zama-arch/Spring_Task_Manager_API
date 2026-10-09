@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Simple Project</p>
+          <h1>Task Manager</h1>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <h2 id="formTitle">Add Task</h2>
+          <form id="taskForm">
+            <input type="hidden" id="taskId" />
+
+            <label>
+              Title
+              <input id="title" name="title" type="text" maxlength="120" required />
+            </label>
+
+            <label>
+              Description
+              <textarea id="description" name="description" rows="4" placeholder="Optional details"></textarea>
+            </label>
+
+            <div class="two-columns">
+              <label>
+                Due date
+                <input id="dueDate" name="dueDate" type="date" required />
+              </label>
+
+              <label>
+                Status
+                <select id="status" name="status">
+                  <option value="pending">Pending</option>
+                  <option value="in_progress">In Progress</option>
+                  <option value="done">Done</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Save Task</button>
+              <button type="button" id="cancelEdit" class="secondary-btn hidden">Cancel</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel list-panel">
+          <div class="list-header">
+            <h2>Tasks</h2>
+            <button id="refreshButton" type="button" class="secondary-btn">Refresh</button>
+          </div>
+
+          <div id="taskList" class="task-list" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
